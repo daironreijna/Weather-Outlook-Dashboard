@@ -1,0 +1,66 @@
+# PSEUDOCODE WEATHER OUTLOOK DASHBOARD
+
+This pseudocode was completed on 15th Sept 2023.
+
+It is important to take the time to consider how the website will work from multiple perspectives. How will the user interact with the website, what do they need to see, understand and what do we expect them to do.
+
+Then with that understanding, what do I as a Front End developer need to complete on a high level, in order to achieve that.
+
+Subsequently, what programming tools, concepts, functions etc. do I need to use to achieve that, and can I start coding out a bit under each point. I can review the past week(s) material to get a clue on how to code the initial bits.
+
+# User view
+  ===========================================================
+
+User visits website to see the weather outlook for multiple cities. This data will assist with planning a trip.
+
+User will use a form to input a city name 
+Once user submits response a button element is available on the left hand side.
+
+Once the user selects a button the Weather Dashboard will show the user the city's Name and todays weather.
+Below there will be five cards for the user to see the 5 day forecast. 
+Each card will have the date, an icon, temp, wind and humidity. 
+
+
+(OUTPUTs from this stage: wireframe(s) of the website to be built, with relevant elements incorporated e.g. color, size of items on display etc.)
+
+
+
+# What developer has to do
+  ===========================================================
+
+A visual appealing website for a traveller to use is built.
+
+There are different elements on the webpage
+a header with 'Weather Dashboard', and the background color is gradually changing from one hue to a darker hue. The color is in purple.
+
+There is an aside, with a heading titled 'Search for a City:' 
+below this there is an input field and a search button. The search button is background colored blue with white text.
+
+The aside also contains up to seven buttons that have city names. In this section the user's saved searches are held.
+The background color of these city buttons are light grey.
+
+The website also has two rows to the right hand side.
+the first row has today's weather forecast for the city chosen by the user. The background color is white, the text color is black.
+
+the second row has the next 5 days weather forecast. The weather cards in this row have background color of dark grey, with white text.
+
+(OUTPUT stage 2: logic behind all the elements needed)
+
+
+# Tools to accomplish above tasks.
+  ===========================================================
+  Before starting, ensure setup is correct;
+    * ensure bootstrap is connected.
+    * see if font awesome is needed, or if api will render its own icons
+    * require access to 5 day weather forecast and Geocoding API from - OpenWeatherMap
+    * use config.js to hide API key
+
+    build out HTML elements
+    build out CSS elements
+    create reset.css and index.css files
+    create script.js file and use Fetch Then Promise to get data and append as needed to the HTML.
+    an event listener will be needed when buttons are clicked.
+    
+
+
+(OUPUT stage 3: build the html, javascript, asset folder etc., review online documents, code and test along the way. Remember to commit each time you have working code. Make use of alert, confirm, prompt and console.log when testing but change to show elements on the page.)

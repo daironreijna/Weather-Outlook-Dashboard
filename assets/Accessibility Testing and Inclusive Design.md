@@ -18,7 +18,7 @@ There is a need to actively engage in accessibility testing in our web dev proje
 
 ### Your Feedback Matters
 
-Testing for accessibility is an ongoing process, and user feedback is invaluable. As a web developer it is important to experience your projects from the perspective of diverse users. Try using screen readers, keyboard navigation, and other assistive technologies to identify potential barriers. Also user feedback will not only improve your projects but contribute to a more inclusive digital ecosystem.
+Testing for accessibility is an ongoing process, and user feedback is invaluable. As a web developer it is important to experience my projects from the perspective of diverse users. Please try using screen readers, keyboard navigation, and other assistive technologies to identify potential barriers in this project. Also user feedback will not only improve this project but contribute to a more inclusive digital ecosystem.
 
 ### Resources for Accessibility Testing
 
@@ -26,6 +26,6 @@ Testing for accessibility is an ongoing process, and user feedback is invaluable
 - [Accessibility Inspector in Firefox Developer Tools](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/)
 - [Web Content Accessibility Guidelines (WCAG) - Decision Tree](https://www.w3.org/WAI/tutorials/images/decision-tree/)
 
-By prioritizing accessibility testing and inclusive design, you're fostering a web that empowers everyone to engage, interact, and experience digital content without limitations. Your commitment to accessibility aligns with industry standards, legal requirements, and, most importantly, the principles of digital equality.
+By prioritizing accessibility testing and inclusive design, together we're fostering a web that empowers everyone to engage, interact, and experience digital content without limitations. Our commitment to accessibility aligns with industry standards, legal requirements, and, most importantly, the principles of digital equality.
 
-Remember, every step you take toward accessibility is a step toward a more inclusive future.
+Remember, every step taken toward accessibility is a step toward a more inclusive future.

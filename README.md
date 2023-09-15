@@ -1,59 +1,25 @@
-# b><i><span style="color:cyan">Project 8: Weather Dashboard </span></b></i>
+# <b><i><span style="color:cyan">Project 8: Weather Outlook Dashboard </span></b></i>
 
-![Weather Dashboard Challenge](weather-dashboard.png)
+![Weather Dashboard Challenge Banner](./assets/images/banner-03.jpeg)
+![Weather-Outlook-Dashboard](https://img.shields.io/github/languages/top/daironreijna/Weather-Outlook-Dashboard)  ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)   ![Weather-Outlook-Dashboard](https://img.shields.io/github/languages/count/daironreijna/Weather-Outlook-Dashboard)
 
-![web-apis-pop-quiz](https://img.shields.io/github/languages/top/daironreijna/web-apis-pop-quiz) ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![web-apis-pop-quiz](https://img.shields.io/github/languages/count/daironreijna/web-apis-pop-quiz)
-
-Welcome to the Weather Dashboard Challenge! In this challenge, you will create a web application that allows users to view the weather forecast for cities of their choosing. You will use the OpenWeatherMap API to retrieve weather data for cities.
+Welcome to the Weather Outlook Dashboard! In this project, I have created a web application that allows users to view the weather forecast for cities of their choosing. I have made use of the OpenWeatherMap API to retrieve weather data for cities.
 
 ## Table of Contents
+
 - [Introduction](#introduction)
-- [User Story](#user-story)
-- [Acceptance Criteria](#acceptance-criteria)
-- [Mock-Up](#mock-up)
-- [Getting Started](#getting-started)
 - [Technical Details](#technical-details)
 - [Deployment](#deployment)
-- [Application Quality](#application-quality)
+- [Motivation and Learning](#motivation-and-learning)
+- [Project Learning Objectives](#project-learning-objectives)
+- [Resources](#resources)
 - [Repository Quality](#repository-quality)
 
 ## Introduction
 
-Server APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. In this challenge, you will build a weather dashboard that runs in the browser and features dynamically updated HTML and CSS. The dashboard will allow users to see the weather forecast for multiple cities, helping them plan their trips accordingly.
+Server APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. This project builds a weather outlook dashboard that runs in the browser and features dynamically updated HTML and CSS. The dashboard will allow users to see the weather forecast for multiple cities, helping them plan their trips accordingly.
 
-## User Story
-
-As a traveler, I want to see the weather outlook for multiple cities so that I can plan a trip accordingly.
-
-## Acceptance Criteria
-
-### Create a weather dashboard with form inputs.
-
-- When a user searches for a city, they are presented with current and future conditions for that city, and that city is added to the search history.
-- When a user views the current weather conditions for that city, they are presented with:
-  - The city name
-  - The date
-  - An icon representation of weather conditions
-  - The temperature
-  - The humidity
-  - The wind speed
-- When a user views future weather conditions for that city, they are presented with a 5-day forecast that displays:
-  - The date
-  - An icon representation of weather conditions
-  - The temperature
-  - The humidity
-- When a user clicks on a city in the search history, they are again presented with current and future conditions for that city.
-
-### Mock-Up
-
-The following image shows the web application's appearance and functionality:
-
-![Weather Dashboard Mock-Up](weather-dashboard.png)
-
-## Getting Started
-
-1. Clone this repository to your local machine.
-2. Open the project folder in your preferred code editor.
+![Weather Dashboard Mock-Up](./assets/images/10-server-side-apis-challenge-demo.png)
 
 ## Technical Details
 
@@ -64,25 +30,46 @@ The following image shows the web application's appearance and functionality:
 
 The Weather Dashboard Challenge is deployed at the following live URL:
 
-[Weather Dashboard Live Demo](https://your-live-demo-url.com)
+[Weather Outlook Dashboard Live Demo](weather-outlook-dashboard.vercel.app)
 
 The GitHub repository for this project can be found at:
 
-[GitHub Repository](https://github.com/your-username/weather-dashboard)
+[GitHub Repository](https://github.com/daironreijna/Weather-Outlook-Dashboard)
 
-## Application Quality
+<br>
+<u>In order to use this webapp, you will need to </u>
 
-- The application's user experience is intuitive and easy to navigate.
-- The user interface style is clean and polished.
-- The application resembles the mock-up functionality provided in the challenge instructions.
+1. Create your own API key by visiting https://openweathermap.org/api
+2. Create a config.js file in the asset/js folder
+3. Save the API key in the below format
 
-## Repository Quality
+<b>Example:</b> 
 
-- The repository has a unique name.
-- The repository follows best practices for file structure and naming conventions.
-- The repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-- The repository contains multiple descriptive commit messages.
-- The repository contains a quality README file with a description, screenshot, and a link to the deployed application.
+````javascript
+var config = {
+	key: [YOUR_SECRET_API_KEY_GOES_HERE],
+};
+````
+````javascript
+// ===== after placing your API key ===========
+var config = {
+	key: "14c5e5e260e3e3432d141deb7d150ec3",
+};
+````
+## Motivation and Learning
+This project is an opportunity to apply the knowledge and skills acquired during week 8 of the course. It serves as a practical exercise to understand how to work with server APIs, retrieve and display data, and create a user-friendly web application. Additionally, this project encourages learning about data persistence using LocalStorage.
+
+## Project Learning Objectives
+By the end of this project, I have been able to:
+
+- Understand and utilize the concept and utility of APIs and JSON in web applications.
+- Build endpoint URLs to a variety of APIs.
+- Work with the OpenWeatherMap 5 Day Forecast API to retrieve weather data.
+- Retrieve and process data from external APIs.
+- Display current and future weather conditions for selected cities.
+- Store and manage data using LocalStorage for a seamless user experience.
+- Enhance my skills in front-end web development, including dynamic element generation and fetch calls.
+- Create a real-world application that requires understanding different coding languages, concepts and functions.
 
 ## <u>Resources</u>
 
@@ -97,28 +84,26 @@ The GitHub repository for this project can be found at:
 - [Pt. Prashant tripathi (2020) How to hide API KEY in GitHub repo](https://dev.to/ptprashanttripathi/how-to-hide-api-key-in-github-repo-2ik9)
 - [Andrew Ayer (2023) git-crypt - transparent file encryption in git](https://www.agwa.name/projects/git-crypt/)
 - [MDN Web Docs (n.d.) Glossary: Definitions of Web-related terms > Callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function)
-- [MDN Web Docs (n.d.) References > JavaScript > Guide > Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
--[StackOverFlow (2018) Question: Using click events on dynamically added DOM elements](https://stackoverflow.com/questions/54562477/using-click-events-on-dynamically-added-dom-elements)
+- [MDN Web Docs (n.d.) References > JavaScript > Guide > Using promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) -[StackOverFlow (2018) Question: Using click events on dynamically added DOM elements](https://stackoverflow.com/questions/54562477/using-click-events-on-dynamically-added-dom-elements)
 - [StackOverFlow (2008) Event binding on dynamically created elements?](https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements)
 - [jQuery (2023) Events > Understanding Event Delegation](https://learn.jquery.com/events/event-delegation/)
-- [HTML5 `data-*` attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) 
+- [HTML5 `data-*` attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
 - [jQuery `.attr()` method](http://api.jquery.com/attr/).
 - [Kingsley Ubah (2021) Fetch API – How to Make a GET Request and POST Request in JavaScript](https://www.freecodecamp.org/news/how-to-make-api-calls-with-fetch/)
 - [W3Schools (n.d.) jQuery References > jQuery HTML / CSS Methods > jQuery empty() Method](https://www.w3schools.com/jquery/html_empty.asp)
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- [jQuery (no date) Categories: Manipulation > DOM Removal > .empty()](https://api.jquery.com/empty/)
--[JSON Formatter (2020) Parser, Formatter, Validator & Beautifier](https://jsonformatter.org/)
+- [Justin Gage (2023) What does Vercel do?](https://vercel.com/blog/what-is-vercel)
+- [JULIAN WALLIS (2022) What Is VERCEL? Is It The Right Platform For Front-End Developers?](https://webo.digital/blog/what-is-vercel-is-it-the-right-platform-for-front-end-developers/)
+- [Technically (n.d.) LEARNING TRACKS: WORKING WITH DEVELOPERS](https://technically.dev/tracks/working-with-developers)
+- [jQuery (no date) Categories: Manipulation > DOM Removal > .empty()](https://api.jquery.com/empty/) -[JSON Formatter (2020) Parser, Formatter, Validator & Beautifier](https://jsonformatter.org/)
+- [OpenWeatherMap (n.d.) 5 day weather forecast](https://openweathermap.org/forecast5)
+- [OpenWeatherMap (n.d.) Geocoding API](https://openweathermap.org/api/geocoding-api)
 - [Shani Raja (2023) The Alchemy of Writing Podcast Episode 2: Blogging With Style in Toronto](https://open.spotify.com/episode/5Y8apbsyU0NOQRntOf0JZD)
+
 </i>
 
-## Contributing
+## Contributing 
 
-Acknowledgement: None required. Coding and design completed solely by developer. 
+Coding and design completed by 
 
 <table>
   <tr>
@@ -126,7 +111,7 @@ Acknowledgement: None required. Coding and design completed solely by developer.
   </tr>
 </table>
 
-I welcome contributions from the community to enhance this Portfolio Project. By participating in this project, you contribute to a vibrant and inclusive environment. To ensure a positive experience the code of conduct we will adhere to is based on [The Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md). Please review and follow these guidelines when contributing.
+<br>I welcome contributions from the community to enhance this Portfolio Project. By participating in this project, you contribute to a vibrant and inclusive environment. To ensure a positive experience the code of conduct we will adhere to is based on [The Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md). Please review and follow these guidelines when contributing.
 
 ## Accessibility Testing
 
@@ -139,73 +124,3 @@ This project is licensed under a [MIT License](./LICENCE).
 ---
 
 © 2023 Dairon Reijna. Confidential and Proprietary. All Rights Reserved.
-
-
-Welcome to the Weather Dashboard Challenge! In this challenge, you will create a web application that allows users to view the weather forecast for cities of their choosing. You will use the OpenWeatherMap API to retrieve weather data for cities.
-
-Introduction
-Server APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. In this challenge, you will build a weather dashboard that runs in the browser and features dynamically updated HTML and CSS. The dashboard will allow users to see the weather forecast for multiple cities, helping them plan their trips accordingly.
-
-User Story
-As a traveler, I want to see the weather outlook for multiple cities so that I can plan a trip accordingly.
-
-Acceptance Criteria
-Create a weather dashboard with form inputs.
-When a user searches for a city, they are presented with current and future conditions for that city, and that city is added to the search history.
-When a user views the current weather conditions for that city, they are presented with:
-The city name
-The date
-An icon representation of weather conditions
-The temperature
-The humidity
-The wind speed
-When a user views future weather conditions for that city, they are presented with a 5-day forecast that displays:
-The date
-An icon representation of weather conditions
-The temperature
-The humidity
-When a user clicks on a city in the search history, they are again presented with current and future conditions for that city.
-Motivation and Learning
-During week 8 and specifically within this project, I've had the opportunity to deepen my knowledge and skills in web development. This project served as a valuable learning experience, allowing me to apply what I've learned and develop a practical understanding of the following:
-
-Project Learning Objectives
-By the end of this project, I have been able to:
-
-Understand and utilize server APIs and JSON in web applications.
-Build endpoint URLs to access various APIs.
-Work with the OpenWeatherMap API to retrieve weather data.
-Utilize LocalStorage to store persistent data.
-Enhance my skills in front-end web development, including dynamic element generation and fetch calls.
-Create a real-world application that requires collaborative coding.
-Mock-Up
-The following image shows the web application's appearance and functionality:
-
-
-# Weather Dashboard Challenge - README
-
-![Weather Dashboard Challenge](weather-dashboard.png)
-
-Welcome to the Weather Dashboard Challenge! In this challenge, you will create a web application that allows users to view the weather forecast for cities of their choosing. You will use the OpenWeatherMap API to retrieve weather data for cities.
-
-
-
-## Introduction
-
-Server APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. In this challenge, you will build a weather dashboard that runs in the browser and features dynamically updated HTML and CSS. The dashboard will allow users to see the weather forecast for multiple cities, helping them plan their trips accordingly.
-
-### Motivation and Learning
-
-This project is an opportunity to apply the knowledge and skills acquired during week 8 of the course. It serves as a practical exercise to understand how to work with server APIs, retrieve and display data, and create a user-friendly web application. Additionally, this project encourages learning about data persistence using LocalStorage.
-
-## Project Learning Objectives
-
-By the end of this project, I have been able to:
-- Understand and utilize the concept and utility of APIs and JSON in web applications.
-- Build endpoint URLs to a variety of APIs.
-- Retrieve and process data from external APIs.
-- Display current and future weather conditions for selected cities.
-- Store and manage data using LocalStorage for a seamless user experience.
-
-## User Story
-
-As a traveler, I want to see the weather outlook for multiple cities so that I can plan a trip accordingly.
