@@ -1,9 +1,21 @@
 /*-- Global  
     -----------------------------------------------------------------------------------*/
+body {
+    font-family: Arial;
+    font-size: 120%;
+}
 
 html {
     scroll-behavior: smooth;
     /*padding: 1%!important;*/
+}
+
+.hide {
+    display: none;
+}
+
+.start {
+    text-align: center;
 }
 
 /*-- Header  
@@ -24,13 +36,9 @@ html {
 /*-- Aside 
     -----------------------------------------------------------------------------------*/
 
-.form-heading {
-    
-}
+.form-heading {}
 
-.search-form {
-    
-}
+.search-form {}
 
 .search-button {
     background-color: #008CBA;
