@@ -95,6 +95,13 @@ By the end of this project, I have been able to:
 - [JULIAN WALLIS (2022) What Is VERCEL? Is It The Right Platform For Front-End Developers?](https://webo.digital/blog/what-is-vercel-is-it-the-right-platform-for-front-end-developers/)
 - [Technically (n.d.) LEARNING TRACKS: WORKING WITH DEVELOPERS](https://technically.dev/tracks/working-with-developers)
 - [jQuery (no date) Categories: Manipulation > DOM Removal > .empty()](https://api.jquery.com/empty/) -[JSON Formatter (2020) Parser, Formatter, Validator & Beautifier](https://jsonformatter.org/)
+- [FadySamirSadek (2018) jQuery TodoMVC Example](https://github.com/tastejs/todomvc/tree/gh-pages/examples/jquery)
+- [jQuery resource](http://todomvc.com/examples/jquery/#/all)
+- [HTTP response status codes - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- [How to avoid exposing your API key in your public front-end apps](https://www.freecodecamp.org/news/private-api-keys/)
+- [A better way to prepare for coding interviews.](https://neetcode.io/roadmap)
+- [StackOverFlow (2011 modified 2021) Add line break to 'git commit -m' from the command line](https://stackoverflow.com/questions/5064563/add-line-break-to-git-commit-m-from-the-command-line)
+- [John Högberg (2023, revision June 12) Writing good commit messages](https://github.com/erlang/otp/wiki/Writing-good-commit-messages)
 - [OpenWeatherMap (n.d.) 5 day weather forecast](https://openweathermap.org/forecast5)
 - [OpenWeatherMap (n.d.) Geocoding API](https://openweathermap.org/api/geocoding-api)
 - [Shani Raja (2023) The Alchemy of Writing Podcast Episode 2: Blogging With Style in Toronto](https://open.spotify.com/episode/5Y8apbsyU0NOQRntOf0JZD)
@@ -111,11 +118,11 @@ Coding and design completed by
   </tr>
 </table>
 
-<br>I welcome contributions from the community to enhance this Portfolio Project. By participating in this project, you contribute to a vibrant and inclusive environment. To ensure a positive experience the code of conduct we will adhere to is based on [The Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md). Please review and follow these guidelines when contributing.
+<br>I welcome contributions from the community to enhance this Portfolio Project. By participating in this project, you will be contributing to a vibrant and inclusive environment. To ensure a positive experience the code of conduct we will adhere to is based on [The Contributor Covenant](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md). Please review and follow these guidelines when contributing.
 
 ## Accessibility Testing
 
-I aim to develop websites that are built mobile first, with accessibility in prime focus. I welcome feedback, and would ask that you test for accessibility by visiting this page: [Accessibility Testing and Inclusive Design](./assets/Accessibility%20Testing%20and%20Inclusive%20Design.md).
+I aim to develop websites that are built mobile first, with accessibility in prime focus. I welcome feedback, and would ask that you test for accessibility. For further information please visit this page: [Accessibility Testing and Inclusive Design](./assets/Accessibility%20Testing%20and%20Inclusive%20Design.md).
 
 ## License
 
