@@ -1,18 +1,24 @@
+//TODO! use the document.read function.
+
 /*$(document).ready(function () {
 */
 // latitude
-const lat = 44.34;
+let lat = 44.34;
 // longitude
-const lon = 10.99;
+let lon = 10.99;
 // Pulling secret API Key from config.js
 const API_KEY = config.key;
 
 // use queryURL in order to get data from OpenWeather API
 
+
+
+
 let queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
 let searchString = "";
 let cityNumber = 0;
-
+let searchHistory = [];
+const searchHistoryContainer = $("#history");
 //console.log(queryURL);
 
 // // the day of today 
@@ -36,98 +42,102 @@ let unix_timestamp = 1694887200;
 // multiplied by 1000 so that the argument is in milliseconds, not seconds.
 let date = new Date(unix_timestamp * 1000);
 
-//console.log(date)
-
 // starts true but once function has been called will turn to false
 let createCards = new Boolean(true);
 
+function getCoordinates(searchString) {
+  let weatherCoordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${searchString}&limit=5&appid=${API_KEY}`
+
+  fetch(weatherCoordURL)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (!data[0]) {
+        alert("Location not found")
+      } else {
+        // append history to local storage
+
+        if (searchHistory.indexOf(searchString) !== -1) {
+          return
+        }
+        searchHistory.push(searchString);
+
+        localStorage.setItem("search-history", JSON.stringify(searchString));
+
+        searchHistoryContainer.html("");
+
+        for (let index = 0; index < searchHistory.length; index++) {
+          
+          let btn = $("<button>");
+          btn.attr("type", "button")
+
+          btn.addClass("btn btn-lg history-btn btn-history");
+          btn.attr("data-search", searchHistory[index]);
+          //btn.attr("style", "color:white;");
+          searchHistoryContainer.append(btn);
+
+        }
+      }
+      console.log(data);
+      lat = data.lat;
+      lon = data.lon;
+      console.log(lat, lon);
+    })
+}
+
+
+// What happens when the user submits the search form: 
 // form input is saved to local storage and
 // form input is added to page.
+
 $(".search-button").on("click", function (event) {
   event.preventDefault()
+
+  let searchString = $("#search-input").val().trim();
+
+  if (!searchString) {
+    return
+  }
+
   cityNumber += 1;
-  let searchString = $("#search-input").val();
+
   localStorage.setItem(`cityNumber${cityNumber}`, searchString)
+
+  getCoordinates(searchString);
+
   // 1. Create a variable named "cityBtn" equal to $("<button>");
   const cityBtn = $("<button>");
-  const divBtn = $("#history");
+  cityBtn.attr("type", "button")
+
   // 2. Then give each "cityBtn" and divBtn classes.
 
   cityBtn.addClass("btn btn-secondary btn-lg city-button");
-  divBtn.addClass("d-grid gap-2")
+  searchHistoryContainer.addClass("d-grid gap-2")
   // 3. Then give each "cityBtn" an attribute called "data-city", with a value eqaual to "searchString"
   cityBtn.attr("data-city", searchString);
   cityBtn.attr("style", "color:white;");
   // 4. Then give each "cityBtn" a text equal to "searchString".
   cityBtn.text(searchString);
   // 6. Finally, append each "cityBtn" to the ".div".
-  divBtn.prepend(cityBtn);
+  searchHistoryContainer.prepend(cityBtn);
 
-  $("#search-input").empty(); //TODO does not seem to remove input
+  // populate information to local storage.
+
+
+
   // only call function if cards haven't been previously created.
-  if (createCards) {
-  createWeatherCards() 
-  }
+  // if (createCards) {
+  //   createWeatherCards()
+  // }
 });
 
 
-
-/**
- ** Upon first saving search, the following are populated.
- ** 1 main card using and 
- ** 5 cards using 
- ** then when clicking historical requests, these will also call for cards and input the data.
- *TODO Test out how the html will function when the user closes browser, does not clear local storage and comes back to html.
-*/
-function createWeatherCards() {
-  // create a variable, and add if statement to button click function
-  createCards = false;
-  
-  // once for top card
-  $('#today')
-  .append(
-    [$('<div/>', { "class": "card border-dark bg-light col-lg-9" })
-      .append(
-        $('<div/>', { "class": "card-body" })
-          .append(
-            [$("<h5>").addClass("card-title font-weight-bold").text("date"),
-            $("<h6>").addClass("card-subtitle mb-2 text-muted").text(`Weather Forecast`),
-            $(`<p id=input1>`).addClass("card-text ").text("input1"),
-            $(`<p id=input2>`).addClass("card-text ").text("input2"),
-            $(`<p id=input3>`).addClass("card-text ").text("input3"),
-            $(`<p id=input4>`).addClass("card-text ").text("input4"),
-            ]
-          )
-      )
-    ]
-  )
-
-
-        
-  // for loop for 5 cards
-  for (let index = 0; index < 5; index++) {
-    const element = [$('<div/>', { "class": "card border-dark bg-light col-md-2" })
-        .append(
-          $('<div/>', { "class": "card-body" })
-            .append(
-              [$("<h5>").addClass("card-title font-weight-bold").text("date"),
-              $("<h6>").addClass("card-subtitle mb-2 text-muted").text(`Weather Forecast`),
-              $(`<p id=input1>`).addClass("card-text ").text("input1"),
-              $(`<p id=input2>`).addClass("card-text ").text("input2"),
-              $(`<p id=input3>`).addClass("card-text ").text("input3"),
-              $(`<p id=input4>`).addClass("card-text ").text("input4"),
-              ]
-            )
-        )
-      ];
-    $('#forecast').append(element);
-  
-}};
-
-function populateWeatherCards() {
-
-}
-
+$("city-button").on("click", function (event) {
+  event.preventDefault();
+  console.log("city button clicked ")
+  createWeatherCards();
+})
 
 
 /*
@@ -136,8 +146,8 @@ fetch(queryURL)
     return response.json();
   })
   .then(function (data) {
-    // console.log(data);
-    //console.log(data.list[0].main.temp);
+    console.log(data);
+    console.log(data.list[0].main.temp);
 
     var todayDiv = $("#today");
 
@@ -166,17 +176,16 @@ Humidity: ${data.list[0].main.humidity}%`);
 // need to use id=today
 //<section id="today" class="mt-3" role="region" aria-live="polite"></section>
 articleNumber++;
-                var article = $("<div>");
-                article.addClass("well well-lg row");
-                var title = $("<h3>");
-                title.addClass("title");
-                title.text(data.articles[i].title);
-                var description = $("<p>");
-                description.addClass("description");
-                description.text(data.articles[i].description);
-                var number = $("<div class='articleNumber'>").text(articleNumber);
-                $(article).append(number, title, description);
-                $("#article-results").append(article);
+var article = $("<div>");
+article.addClass("well well-lg row");
+var title = $("<h3>");
+title.addClass("title");
+title.text(data.articles[i].title);
+var description = $("<p>");
+description.addClass("description");
+description.text(data.articles[i].description);
+var number = $("<div class='articleNumber'>").text(articleNumber);
+$(article).append(number, title, description);
+$("#article-results").append(article);
 
-});
-});*/
+*/
