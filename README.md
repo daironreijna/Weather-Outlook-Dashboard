@@ -30,7 +30,7 @@ Server APIs allow developers to access their data and functionality by making re
 
 The Weather Dashboard Challenge is deployed at the following live URL:
 
-[Weather Outlook Dashboard Live Demo](weather-outlook-dashboard.vercel.app)
+[Weather Outlook Dashboard Web Link](https://weather-outlook-dashboard.vercel.app/)
 
 The GitHub repository for this project can be found at:
 
@@ -114,7 +114,7 @@ Coding and design completed by
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/daironreijna"><img src="https://avatars.githubusercontent.com/u/140647099?v=4" width="100px;" alt="headshot of Dairon Reijna"/><br /><sub><b>Dairon Reijna</b></sub></a><br /></a><a href="https://github.com/daironreijna/web-apis-pop-quiz" title="Design">🎨</a><a href="https://github.com/daironreijna/web-apis-pop-quiz" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/daironreijna"><img src="https://avatars.githubusercontent.com/u/140647099?v=4" width="100px;" alt="headshot of Dairon Reijna"/><br /><sub><b>Dairon Reijna</b></sub></a><br /></a><a href="https://github.com/daironreijna/Weather-Outlook-Dashboard/commits?author=daironreijna" title="Design">🎨</a><a href="https://github.com/daironreijna/Weather-Outlook-Dashboard/commits?author=daironreijna" title="Code">💻</a></td>
   </tr>
 </table>
 

@@ -10,15 +10,13 @@ let lon = 10.99;
 const API_KEY = config.key;
 
 // use queryURL in order to get data from OpenWeather API
-
-
-
-
 let queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
 let searchString = "";
 let cityNumber = 0;
 let searchHistory = [];
-const searchHistoryContainer = $("#history");
+let searchHistoryContainer = $("#history");
+searchHistoryContainer.addClass("d-grid gap-2");
+let searchForm = $("#search-form");
 //console.log(queryURL);
 
 // // the day of today 
@@ -45,6 +43,33 @@ let date = new Date(unix_timestamp * 1000);
 // starts true but once function has been called will turn to false
 let createCards = new Boolean(true);
 
+
+// the search history function should load as the page loads, in essence, if there is any local storage history it should be populated. 
+// however if there is no history, then button should be populated on the fly. 
+// so this should be handled by $(".search-button").on("click", function (event) {  
+
+function populateSearchHistory() {
+  //searchHistoryContainer.html("");
+  console.log(searchHistory);
+  for (let index = 0; index < searchHistory.length; index++) {
+
+    let btn = $("<button>");
+    btn.attr("type", "button")
+
+    btn.addClass("btn btn-lg history-btn btn-history");
+    btn.attr("data-search", searchHistory[index]);
+    btn.attr("style", "color:white;");
+    btn.text = searchHistory[index];
+    searchHistoryContainer.append(btn);
+  }
+}
+
+// fill the Cards if they are created. 
+if (!createCards) {
+  console.log("Current idea is to fill cards with info after they have been populated, based on the last clicked button")
+}
+
+
 function getCoordinates(searchString) {
   let weatherCoordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${searchString}&limit=5&appid=${API_KEY}`
 
@@ -65,19 +90,9 @@ function getCoordinates(searchString) {
 
         localStorage.setItem("search-history", JSON.stringify(searchString));
 
-        searchHistoryContainer.html("");
 
-        for (let index = 0; index < searchHistory.length; index++) {
-          
-          let btn = $("<button>");
-          btn.attr("type", "button")
 
-          btn.addClass("btn btn-lg history-btn btn-history");
-          btn.attr("data-search", searchHistory[index]);
-          //btn.attr("style", "color:white;");
-          searchHistoryContainer.append(btn);
 
-        }
       }
       console.log(data);
       lat = data.lat;
@@ -113,7 +128,6 @@ $(".search-button").on("click", function (event) {
   // 2. Then give each "cityBtn" and divBtn classes.
 
   cityBtn.addClass("btn btn-secondary btn-lg city-button");
-  searchHistoryContainer.addClass("d-grid gap-2")
   // 3. Then give each "cityBtn" an attribute called "data-city", with a value eqaual to "searchString"
   cityBtn.attr("data-city", searchString);
   cityBtn.attr("style", "color:white;");
@@ -126,10 +140,10 @@ $(".search-button").on("click", function (event) {
 
 
 
-  // only call function if cards haven't been previously created.
-  // if (createCards) {
-  //   createWeatherCards()
-  // }
+  //only call function if cards haven't been previously created.
+  if (createCards) {
+    createWeatherCards()
+  }
 });
 
 
