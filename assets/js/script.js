@@ -17,7 +17,7 @@ let searchHistory = [];
 let searchHistoryContainer = $("#history");
 searchHistoryContainer.addClass("d-grid gap-2");
 let searchForm = $("#search-form");
-//console.log(queryURL);
+
 
 // // the day of today 
 // console.log(dayjs()); // everything as an object
@@ -48,27 +48,12 @@ let createCards = new Boolean(true);
 // however if there is no history, then button should be populated on the fly. 
 // so this should be handled by $(".search-button").on("click", function (event) {  
 
-function populateSearchHistory() {
-  //searchHistoryContainer.html("");
-  console.log(searchHistory);
-  for (let index = 0; index < searchHistory.length; index++) {
-
-    let btn = $("<button>");
-    btn.attr("type", "button")
-
-    btn.addClass("btn btn-lg history-btn btn-history");
-    btn.attr("data-search", searchHistory[index]);
-    btn.attr("style", "color:white;");
-    btn.text = searchHistory[index];
-    searchHistoryContainer.append(btn);
-  }
-}
-
+/*
 // fill the Cards if they are created. 
 if (!createCards) {
   console.log("Current idea is to fill cards with info after they have been populated, based on the last clicked button")
 }
-
+*/
 
 function getCoordinates(searchString) {
   let weatherCoordURL = `http://api.openweathermap.org/geo/1.0/direct?q=${searchString}&limit=5&appid=${API_KEY}`
@@ -83,28 +68,59 @@ function getCoordinates(searchString) {
       } else {
         // append history to local storage
 
-        if (searchHistory.indexOf(searchString) !== -1) {
-          return
-        }
-        searchHistory.push(searchString);
+        // if (searchHistory.indexOf(searchString) !== -1) {
+        //   return
+        // }
+        //searchHistory.push(searchString);
 
-        localStorage.setItem("search-history", JSON.stringify(searchString));
-
-
-
+        //localStorage.setItem("search-history", JSON.stringify(searchString));
 
       }
       console.log(data);
+
+      localStorage.setItem("weatherCoordUrl", JSON.stringify(data));
+
       lat = data.lat;
       lon = data.lon;
       console.log(lat, lon);
     })
 }
 
+// to get data from local storage 
+window.onload = function (event) {
+  event.preventDefault();
+  //searchHistory.filter(function(val) { return val !== null; }).join(", ")
 
-// What happens when the user submits the search form: 
-// form input is saved to local storage and
-// form input is added to page.
+  for (let index = 1; index < JSON.parse(localStorage.getItem(`cities`)) + 1; index++) {
+    event.preventDefault();
+    searchHistory.push(localStorage.getItem(`cityNumber${index}`));
+    console.log("{" + localStorage.getItem(`cityNumber${index}`) + "}");
+
+    // TODO create one function that generatesButtons which can becalled here, and elsewhere#
+    // In order to adhere to DRY principles.
+    const searchBtn = $("<button>");
+    searchBtn.attr("type", "button")
+    searchBtn.addClass("btn btn-secondary btn-lg city-button");
+    searchBtn.attr("data-city", localStorage.getItem(`cityNumber${index}`));
+    searchBtn.attr("style", "color:white;");
+    searchBtn.text(localStorage.getItem(`cityNumber${index}`));
+    searchHistoryContainer.prepend(searchBtn);
+
+  }
+
+  var cityNumber = localStorage.getItem(`cities`);
+  localStorage.setItem(`cities`, cityNumber);
+  console.log(cityNumber);
+  console.log(searchHistory);
+
+
+};
+
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  console.log("dom loaded test")
+
+});
 
 $(".search-button").on("click", function (event) {
   event.preventDefault()
@@ -117,7 +133,8 @@ $(".search-button").on("click", function (event) {
 
   cityNumber += 1;
 
-  localStorage.setItem(`cityNumber${cityNumber}`, searchString)
+  localStorage.setItem(`cityNumber${cityNumber}`, searchString);
+  localStorage.setItem(`cities`, cityNumber);
 
   getCoordinates(searchString);
 
@@ -147,14 +164,15 @@ $(".search-button").on("click", function (event) {
 });
 
 
-$("city-button").on("click", function (event) {
+
+$(".city-button").on("click", function (event) {
   event.preventDefault();
   console.log("city button clicked ")
   createWeatherCards();
 })
 
 
-/*
+
 fetch(queryURL)
   .then(function (response) {
     return response.json();
@@ -167,9 +185,7 @@ fetch(queryURL)
 
     // convert timestamps from unix to 
 
-    todayDiv.text(`Temp: ${data.list[0].main.temp}  °C  // Precipitation: ${data.list[0].pop} //Wind: ${data.list[0].wind.speed}KMPH 
-//
-Humidity: ${data.list[0].main.humidity}%`);
+    todayDiv.text(`Temp: ${data.list[0].main.temp}  °C  // Precipitation: ${data.list[0].pop} // Wind: ${data.list[0].wind.speed}KMPH // Humidity: ${data.list[0].main.humidity}%`);
 
     //console.log(data);
     //console.log(data.list[0].main.temp);
@@ -189,7 +205,10 @@ Humidity: ${data.list[0].main.humidity}%`);
 // https://www.w3schools.com/jsref/prop_node_textcontent.asp
 // need to use id=today
 //<section id="today" class="mt-3" role="region" aria-live="polite"></section>
-articleNumber++;
+
+
+
+/*articleNumber++;
 var article = $("<div>");
 article.addClass("well well-lg row");
 var title = $("<h3>");
